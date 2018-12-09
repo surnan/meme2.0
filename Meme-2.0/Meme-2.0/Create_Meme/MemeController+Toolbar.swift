@@ -31,6 +31,11 @@ extension MemeController {
     
     @objc func handleShareBarButton() {
         let currentMeme = saveMeme()
+        
+        let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
+        myAppDelegate.memes.append(currentMeme)
+        
+        
         let items = [currentMeme.finalImage]
         let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
         
