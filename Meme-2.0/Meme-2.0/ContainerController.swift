@@ -13,11 +13,5 @@ class ContainerController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.blue
         tabBarController?.title = "Sent Memes"
-        
-        
-        
-  
-        
-        
     }
 }

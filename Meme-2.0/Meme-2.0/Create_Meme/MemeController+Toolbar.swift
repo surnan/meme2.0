@@ -33,18 +33,25 @@ extension MemeController {
         let currentMeme = saveMeme()
         let items = [currentMeme.finalImage]
         let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        
+        
+        activityVC.completionWithItemsHandler = {[unowned self](activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            if !completed {
+                return
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+        
         present(activityVC, animated: true)
     }
     
     @objc func handleCancelBarButton() {
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-        backgroundImageView.image = UIImage()
+        dismiss(animated: true, completion: nil)
     }
     
     //MARK:- BOTTOM Toolbars
     func setupBottomToolBar(){
-        let myImage = #imageLiteral(resourceName: "camera2")
+        let myImage = #imageLiteral(resourceName: "red_heart")
         let barButtonOne = UIBarButtonItem(image: myImage, style: .plain, target: self, action: #selector(handleCameraBarButton))
         let barButtonTwo = UIBarButtonItem(title: "Album", style: .done, target: self, action: #selector(handleAlbumBarButton))
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace,target: nil,action: nil)

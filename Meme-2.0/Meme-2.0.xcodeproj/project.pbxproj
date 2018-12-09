@@ -49,18 +49,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		84314E1921BD71E1007A5676 /* _OLD_STUFF */ = {
-			isa = PBXGroup;
-			children = (
-				84314E1A21BD71E1007A5676 /* MemeController+Keyboard.swift */,
-				84314E1B21BD71E1007A5676 /* MemeController+Toolbar.swift */,
-				84314E1C21BD71E1007A5676 /* MemeStruct.swift */,
-				84314E1F21BD71E1007A5676 /* MemeController.swift */,
-				84314E2021BD71E1007A5676 /* MemeController+TextField.swift */,
-			);
-			path = _OLD_STUFF;
-			sourceTree = "<group>";
-		};
 		8431C1DE21B705EC0017CF39 = {
 			isa = PBXGroup;
 			children = (
@@ -80,7 +68,7 @@
 		8431C1E921B705EC0017CF39 /* Meme-2.0 */ = {
 			isa = PBXGroup;
 			children = (
-				84314E1921BD71E1007A5676 /* _OLD_STUFF */,
+				84E3FD3D21BDAE4F008B43D9 /* Create_Meme */,
 				8431C1EA21B705EC0017CF39 /* AppDelegate.swift */,
 				8431C1FC21B7077C0017CF39 /* CustomTabController.swift */,
 				8431C1FE21B708010017CF39 /* TableController.swift */,
@@ -91,6 +79,18 @@
 				8431C1F621B705EE0017CF39 /* Info.plist */,
 			);
 			path = "Meme-2.0";
+			sourceTree = "<group>";
+		};
+		84E3FD3D21BDAE4F008B43D9 /* Create_Meme */ = {
+			isa = PBXGroup;
+			children = (
+				84314E1A21BD71E1007A5676 /* MemeController+Keyboard.swift */,
+				84314E1B21BD71E1007A5676 /* MemeController+Toolbar.swift */,
+				84314E1C21BD71E1007A5676 /* MemeStruct.swift */,
+				84314E1F21BD71E1007A5676 /* MemeController.swift */,
+				84314E2021BD71E1007A5676 /* MemeController+TextField.swift */,
+			);
+			path = Create_Meme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
