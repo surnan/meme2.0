@@ -12,7 +12,7 @@ class ContainerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.blue
-        tabBarController?.title = "Sent Membes"
+        tabBarController?.title = "Sent Memes"
         
         
         
