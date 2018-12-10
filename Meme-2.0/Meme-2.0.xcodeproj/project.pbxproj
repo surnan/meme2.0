@@ -71,26 +71,42 @@
 			isa = PBXGroup;
 			children = (
 				84E3FD4121BE73F9008B43D9 /* Support */,
-				84E3FD3D21BDAE4F008B43D9 /* Create_Meme */,
-				8450B7E621BEDF930022D8F6 /* MemeCollectionViewCell.swift */,
-				8431C20021B708270017CF39 /* CollectionController.swift */,
+				84E3FD3D21BDAE4F008B43D9 /* Meme_Creation */,
+				8450B7E821BEEA6B0022D8F6 /* TAB- CollectionView */,
+				8450B7E921BEEA940022D8F6 /* TAB- TableView */,
 				8431C1FC21B7077C0017CF39 /* CustomTabController.swift */,
-				8431C1FE21B708010017CF39 /* TableController.swift */,
-				84314E1C21BD71E1007A5676 /* MemeObject.swift */,
 				8431C1F621B705EE0017CF39 /* Info.plist */,
 			);
 			path = "Meme-2.0";
 			sourceTree = "<group>";
 		};
-		84E3FD3D21BDAE4F008B43D9 /* Create_Meme */ = {
+		8450B7E821BEEA6B0022D8F6 /* TAB- CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				8450B7E621BEDF930022D8F6 /* MemeCollectionViewCell.swift */,
+				8431C20021B708270017CF39 /* CollectionController.swift */,
+			);
+			path = "TAB- CollectionView";
+			sourceTree = "<group>";
+		};
+		8450B7E921BEEA940022D8F6 /* TAB- TableView */ = {
+			isa = PBXGroup;
+			children = (
+				8431C1FE21B708010017CF39 /* TableController.swift */,
+			);
+			path = "TAB- TableView";
+			sourceTree = "<group>";
+		};
+		84E3FD3D21BDAE4F008B43D9 /* Meme_Creation */ = {
+			isa = PBXGroup;
+			children = (
+				84314E1C21BD71E1007A5676 /* MemeObject.swift */,
 				84314E1A21BD71E1007A5676 /* MemeController+Keyboard.swift */,
 				84314E1B21BD71E1007A5676 /* MemeController+Toolbar.swift */,
 				84314E1F21BD71E1007A5676 /* MemeController.swift */,
 				84314E2021BD71E1007A5676 /* MemeController+TextField.swift */,
 			);
-			path = Create_Meme;
+			path = Meme_Creation;
 			sourceTree = "<group>";
 		};
 		84E3FD4121BE73F9008B43D9 /* Support */ = {

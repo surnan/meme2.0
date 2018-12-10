@@ -31,7 +31,6 @@ class MemeCollectionViewCell: UICollectionViewCell {
     
     
     func setupCell(){
-    
         cellImageView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(cellImageView)
         NSLayoutConstraint.activate([
@@ -42,12 +41,3 @@ class MemeCollectionViewCell: UICollectionViewCell {
             ])
     }
 }
-
-
-/*
- struct Meme {
- var top: String
- var bottom: String
- var originalImage: UIImage
- var finalImage: UIImage
- */
