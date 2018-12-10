@@ -68,15 +68,12 @@
 		8431C1E921B705EC0017CF39 /* Meme-2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				84E3FD4121BE73F9008B43D9 /* Support */,
 				84E3FD3D21BDAE4F008B43D9 /* Create_Meme */,
-				8431C1EA21B705EC0017CF39 /* AppDelegate.swift */,
 				84314E1C21BD71E1007A5676 /* MemeObject.swift */,
 				8431C1FC21B7077C0017CF39 /* CustomTabController.swift */,
 				8431C1FE21B708010017CF39 /* TableController.swift */,
 				8431C20021B708270017CF39 /* ContainerController.swift */,
-				8431C1EE21B705EC0017CF39 /* Main.storyboard */,
-				8431C1F121B705EE0017CF39 /* Assets.xcassets */,
-				8431C1F321B705EE0017CF39 /* LaunchScreen.storyboard */,
 				8431C1F621B705EE0017CF39 /* Info.plist */,
 			);
 			path = "Meme-2.0";
@@ -91,6 +88,17 @@
 				84314E2021BD71E1007A5676 /* MemeController+TextField.swift */,
 			);
 			path = Create_Meme;
+			sourceTree = "<group>";
+		};
+		84E3FD4121BE73F9008B43D9 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				8431C1F321B705EE0017CF39 /* LaunchScreen.storyboard */,
+				8431C1F121B705EE0017CF39 /* Assets.xcassets */,
+				8431C1EE21B705EC0017CF39 /* Main.storyboard */,
+				8431C1EA21B705EC0017CF39 /* AppDelegate.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

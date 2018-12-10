@@ -13,7 +13,7 @@ class CustomTabController: UITabBarController {
     
     var dummyTextField: UITextField = {
         var textField = UITextField()
-        textField.text = "!!!WELCOME TO THE JUNGLE!!!"
+        textField.text = "Jungle"
         return textField
     }()
     
@@ -43,8 +43,6 @@ class CustomTabController: UITabBarController {
         let currentMeme = Meme(topTxtField: dummyTextField, bottomTxtField: dummyTextField, originalImageView: dummyImageView, memeImage: dummyImage)
         myAppDelegate.memes.append(currentMeme)
         myAppDelegate.memes.append(currentMeme)
-        myAppDelegate.memes.append(currentMeme)
-        myAppDelegate.memes.append(currentMeme)
-        myAppDelegate.memes.append(currentMeme)
+
     }
 }
