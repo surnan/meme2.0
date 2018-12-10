@@ -43,13 +43,19 @@ class CollectionController: UICollectionViewController, UICollectionViewDelegate
         collectionView.backgroundColor = UIColor.gray
         tabBarController?.title = "Sent Memes"
         collectionView.register(MemeCollectionViewCell.self, forCellWithReuseIdentifier: reuseID)
-
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let currentMemeArray = myAppDelegate.memes
+        print("TableView ...Number of Elements in myAppDelegate.memes = \(currentMemeArray.count) \n\n")
+//        print("CollectionController --> memeCount = \(memes.count)")
+        collectionView.reloadData()
+    }
 
     //MARK:- Collection View Functions
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("CollectionController --> memeCount = \(memes.count)")
         return memes.count
     }
     
