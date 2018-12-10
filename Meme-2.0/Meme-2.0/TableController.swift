@@ -24,9 +24,7 @@ class TableController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let tempMemeObject = memes[indexPath.row]
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: resuseID)
         cell?.textLabel?.text = "btm = \(tempMemeObject.bottom)  ..... top = \(tempMemeObject.top)"
         cell?.imageView?.image = tempMemeObject.finalImage
@@ -59,7 +57,7 @@ class TableController: UITableViewController {
         super.viewDidAppear(animated)
         let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
         let currentMemeArray = myAppDelegate.memes
-        print("Number of Elements in myAppDelegate.memes = \(currentMemeArray.count) \n\n")
+        print("TableView ...Number of Elements in myAppDelegate.memes = \(currentMemeArray.count) \n\n")
         tableView.reloadData()
     }
     
