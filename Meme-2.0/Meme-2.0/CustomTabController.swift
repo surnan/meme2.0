@@ -9,11 +9,29 @@
 import UIKit
 
 class CustomTabController: UITabBarController {
-    
+  
     
     var dummyTextField: UITextField = {
         var textField = UITextField()
         textField.text = "Jungle"
+        return textField
+    }()
+    
+    var dummyTextFieldOne: UITextField = {
+        var textField = UITextField()
+        textField.text = "ONE ONE"
+        return textField
+    }()
+    
+    var dummyTextFieldTwo: UITextField = {
+        var textField = UITextField()
+        textField.text = "TWO TWO"
+        return textField
+    }()
+    
+    var dummyTextFieldThree: UITextField = {
+        var textField = UITextField()
+        textField.text = "THREE THREE"
         return textField
     }()
     
@@ -50,8 +68,11 @@ class CustomTabController: UITabBarController {
         viewControllers = tabBarList
         
         let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let currentMeme = Meme(topTxtField: dummyTextField, bottomTxtField: dummyTextField, originalImageView: dummyImageView, memeImage: dummyImage)
-        myAppDelegate.memes.append(currentMeme)
-        myAppDelegate.memes.append(currentMeme)
+        let currentMemeOne = Meme(topTxtField: dummyTextFieldOne, bottomTxtField: dummyTextField, originalImageView: dummyImageView, memeImage: dummyImage)
+        let currentMemeTwo = Meme(topTxtField: dummyTextFieldTwo, bottomTxtField: dummyTextField, originalImageView: dummyImageView, memeImage: dummyImage)
+        let currentMemeThree = Meme(topTxtField: dummyTextFieldThree, bottomTxtField: dummyTextField, originalImageView: dummyImageView, memeImage: dummyImage)
+        myAppDelegate.memes.append(currentMemeOne)
+        myAppDelegate.memes.append(currentMemeTwo)
+        myAppDelegate.memes.append(currentMemeThree)
     }
 }

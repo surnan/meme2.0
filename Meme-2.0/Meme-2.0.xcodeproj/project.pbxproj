@@ -20,6 +20,7 @@
 		8431C1FF21B708010017CF39 /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431C1FE21B708010017CF39 /* TableController.swift */; };
 		8431C20121B708270017CF39 /* CollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431C20021B708270017CF39 /* CollectionController.swift */; };
 		8450B7E721BEDF930022D8F6 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450B7E621BEDF930022D8F6 /* MemeCollectionViewCell.swift */; };
+		8450B7EB21BEF0B40022D8F6 /* ShowMemeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450B7EA21BEF0B40022D8F6 /* ShowMemeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		8431C1FE21B708010017CF39 /* TableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
 		8431C20021B708270017CF39 /* CollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionController.swift; sourceTree = "<group>"; };
 		8450B7E621BEDF930022D8F6 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		8450B7EA21BEF0B40022D8F6 /* ShowMemeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMemeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				8450B7E921BEEA940022D8F6 /* TAB- TableView */,
 				8431C1FC21B7077C0017CF39 /* CustomTabController.swift */,
 				8431C1F621B705EE0017CF39 /* Info.plist */,
+				8450B7EA21BEF0B40022D8F6 /* ShowMemeController.swift */,
 			);
 			path = "Meme-2.0";
 			sourceTree = "<group>";
@@ -112,10 +115,10 @@
 		84E3FD4121BE73F9008B43D9 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				8431C1EA21B705EC0017CF39 /* AppDelegate.swift */,
 				8431C1F321B705EE0017CF39 /* LaunchScreen.storyboard */,
 				8431C1F121B705EE0017CF39 /* Assets.xcassets */,
 				8431C1EE21B705EC0017CF39 /* Main.storyboard */,
-				8431C1EA21B705EC0017CF39 /* AppDelegate.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				84314E2321BD71E1007A5676 /* MemeObject.swift in Sources */,
 				84314E2121BD71E1007A5676 /* MemeController+Keyboard.swift in Sources */,
 				8431C20121B708270017CF39 /* CollectionController.swift in Sources */,
+				8450B7EB21BEF0B40022D8F6 /* ShowMemeController.swift in Sources */,
 				8431C1FF21B708010017CF39 /* TableController.swift in Sources */,
 				8431C1EB21B705EC0017CF39 /* AppDelegate.swift in Sources */,
 				84314E2721BD71E1007A5676 /* MemeController+TextField.swift in Sources */,

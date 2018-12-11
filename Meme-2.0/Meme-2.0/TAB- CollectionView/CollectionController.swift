@@ -35,6 +35,9 @@ class CollectionController: UICollectionViewController, UICollectionViewDelegate
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("top string = \(memes[indexPath.item].top)")
+    }
     
     
     //MARK:- View Controller Functions
@@ -47,9 +50,9 @@ class CollectionController: UICollectionViewController, UICollectionViewDelegate
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let currentMemeArray = myAppDelegate.memes
-        print("TableView ...Number of Elements in myAppDelegate.memes = \(currentMemeArray.count) \n\n")
+//        let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let currentMemeArray = myAppDelegate.memes
+//        print("TableView ...Number of Elements in myAppDelegate.memes = \(currentMemeArray.count) \n\n")
 //        print("CollectionController --> memeCount = \(memes.count)")
         collectionView.reloadData()
     }
@@ -64,8 +67,4 @@ class CollectionController: UICollectionViewController, UICollectionViewDelegate
         tempCell.currentMeme =  memes[indexPath.item]
         return tempCell
     }
-    
-    
-    
-    
 }
