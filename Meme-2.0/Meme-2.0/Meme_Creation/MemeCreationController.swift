@@ -12,6 +12,15 @@ import UIKit
 class MemeCreationController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     var currentIndex = 0
+    var currentMeme: Meme? {
+        didSet{
+            backgroundImageView.image = currentMeme?.originalImage
+            topTextField.text = currentMeme?.top
+            bottomTextField.text = currentMeme?.bottom
+        }
+    }
+    
+    
     
     var backgroundImageView: UIImageView = {
         var imageView = UIImageView()
