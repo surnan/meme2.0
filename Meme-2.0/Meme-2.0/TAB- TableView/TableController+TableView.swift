@@ -50,7 +50,13 @@ extension TableController {
         let newController = MemeCreationController()
         newController.currentMeme = memes[indexPath.item]
         newController.currentIndex = indexPath.item
-        present(newController, animated: true)
+        
+        
+//        present(newController, animated: true)
+    
+        navigationController?.pushViewController(newController, animated: true)
+    
+    
     }
 
 

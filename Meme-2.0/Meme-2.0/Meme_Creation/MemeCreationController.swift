@@ -187,5 +187,8 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
             loadAllGestures()
             showTopAndBottomToolbars(makeVisible: false)
         }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(handleShareBarButton))
+        
     }
 }
