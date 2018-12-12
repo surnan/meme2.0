@@ -18,6 +18,10 @@ class TableController: UITableViewController {
         return appDelegate.memes
     }
 
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//    memes = appDelegate.memes
+    
+    
 //    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 //    var memes = [Meme]()
     

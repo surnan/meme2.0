@@ -63,19 +63,12 @@ extension TableController {
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let deleteAction = UIContextualAction(style: .normal, title:  nil, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-                debugPrint("Delete tapped")
+                self.appDelegate.memes.remove(at: indexPath.item)
+                self.tableView.reloadData()
                 success(true)
             })
             deleteAction.image = #imageLiteral(resourceName: "delete")
             deleteAction.backgroundColor = UIColor.red
             return UISwipeActionsConfiguration(actions: [deleteAction])
         }
-
-    
-    func handleDeleteBarSelection(ac:UIContextualAction, view:UIView, success:Bool){
-        print("test")
-    }
-    
-    
-    
 }
