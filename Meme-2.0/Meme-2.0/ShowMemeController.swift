@@ -48,10 +48,18 @@ class ShowMemeController: UIViewController {
         upSwipe.direction = .up
         downSwipe.direction = .down
         
-        view.addGestureRecognizer(rightSwipe)
-        view.addGestureRecognizer(leftSwipe)
-        view.addGestureRecognizer(upSwipe)
-        view.addGestureRecognizer(downSwipe)
+//        view.addGestureRecognizer(rightSwipe)
+//        view.addGestureRecognizer(leftSwipe)
+//        view.addGestureRecognizer(upSwipe)
+//        view.addGestureRecognizer(downSwipe)
+        
+        
+        memeImageView.addGestureRecognizer(rightSwipe)
+        memeImageView.addGestureRecognizer(leftSwipe)
+        memeImageView.addGestureRecognizer(upSwipe)
+        memeImageView.addGestureRecognizer(downSwipe)
+        
+        
         
         memeImageView.image = memes[currentIndex].finalImage
         view.addSubview(memeImageView)
@@ -68,9 +76,10 @@ class ShowMemeController: UIViewController {
     @objc func handleSwipe(sender: UISwipeGestureRecognizer){
             switch sender.direction {
             case .right:
-                print("RIGHT")
+                showNextMeme()
             case .left:
                 print("LEFT")
+                showPrevMeme()
             case .up:
                 dismiss(animated: true, completion: nil)
             case .down:
@@ -78,5 +87,21 @@ class ShowMemeController: UIViewController {
             default:
                 break
             }
+    }
+    
+    func showNextMeme(){
+        currentIndex += 1
+        if currentIndex >= memes.count {
+            currentIndex = 0
+        }
+        memeImageView.image = memes[currentIndex].finalImage
+    }
+    
+    func showPrevMeme(){
+        currentIndex -= 1
+        if currentIndex < 0 {
+            currentIndex = memes.count - 1
+        }
+        memeImageView.image = memes[currentIndex].finalImage
     }
 }

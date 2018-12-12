@@ -42,6 +42,8 @@ class CustomTabController: UITabBarController {
     }()
     
     var dummyImage = UIImage(imageLiteralResourceName: "cry")
+    var dummyImage2 = UIImage(imageLiteralResourceName: "surprised")
+    var dummyImage3 = UIImage(imageLiteralResourceName: "blue_like")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +71,8 @@ class CustomTabController: UITabBarController {
         
         let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
         let currentMemeOne = Meme(topTxtField: dummyTextFieldOne, bottomTxtField: dummyTextField, originalImageView: dummyImageView, memeImage: dummyImage)
-        let currentMemeTwo = Meme(topTxtField: dummyTextFieldTwo, bottomTxtField: dummyTextField, originalImageView: dummyImageView, memeImage: dummyImage)
-        let currentMemeThree = Meme(topTxtField: dummyTextFieldThree, bottomTxtField: dummyTextField, originalImageView: dummyImageView, memeImage: dummyImage)
+        let currentMemeTwo = Meme(topTxtField: dummyTextFieldTwo, bottomTxtField: dummyTextField, originalImageView: dummyImageView, memeImage: dummyImage2)
+        let currentMemeThree = Meme(topTxtField: dummyTextFieldThree, bottomTxtField: dummyTextField, originalImageView: dummyImageView, memeImage: dummyImage3)
         myAppDelegate.memes.append(currentMemeOne)
         myAppDelegate.memes.append(currentMemeTwo)
         myAppDelegate.memes.append(currentMemeThree)
