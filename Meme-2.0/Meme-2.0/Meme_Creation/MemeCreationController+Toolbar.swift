@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MemeController {
+extension MemeCreationController {
     
     //MARK:- Both Toolbars
     func showToolbars(makeVisible: Bool){

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MemeController {
+extension MemeCreationController {
     //MARK:- UITextField Functions
     @objc func myTextFieldTextChanged (textField: UITextField) {
         textField.text =  textField.text?.uppercased()

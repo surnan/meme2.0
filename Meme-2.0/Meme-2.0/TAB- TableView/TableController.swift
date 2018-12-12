@@ -77,6 +77,6 @@ class TableController: UITableViewController {
     
     @objc func handleThis(){
 //        print("Hello")
-        present(MemeController(), animated: true)
+        present(MemeCreationController(), animated: true)
     }
 }

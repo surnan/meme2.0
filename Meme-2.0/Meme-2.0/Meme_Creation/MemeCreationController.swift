@@ -9,7 +9,7 @@
 import UIKit
 
 
-class MemeController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeCreationController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     var backgroundImageView: UIImageView = {
         var imageView = UIImageView()

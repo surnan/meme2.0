@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MemeController {
+extension MemeCreationController {
     @objc func keyboardWillShow(_ notification: Notification) {
         if bottomTextField.isEditing == true {
             view.frame.origin.y = -getKeyboardHeight(notification)  // y=0 top of screen. We shift it upwards

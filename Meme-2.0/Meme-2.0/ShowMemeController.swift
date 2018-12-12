@@ -1,5 +1,5 @@
 //
-//  MemeViewer.swift
+//  ShowMemeController.swift
 //  Meme-2.0
 //
 //  Created by admin on 12/10/18.
@@ -11,59 +11,62 @@ class ShowMemeController: UIViewController {
     
     var currentIndex = 0
     
-    //Below code does not work
-    /*
-            let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-            let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-            let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-            let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-    */
+    enum MemeSequence {
+        case next
+        case previous
+    }
     
-        private var memes: [Meme]! {
-            let object = UIApplication.shared.delegate
-            let appDelegate = object as! AppDelegate
-            return appDelegate.memes
+    private var memes: [Meme]! {
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        return appDelegate.memes
+    }
+    
+    lazy var  memeImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = true  //requires lazy var
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    func loadAllGestures(){
+        typealias swipe = UISwipeGestureRecognizer.Direction
+        
+        [swipe.up, swipe.down, swipe.left, swipe.right].forEach{
+            let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+            gesture.direction = $0
+            self.memeImageView.addGestureRecognizer(gesture)
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
+        memeImageView.addGestureRecognizer(tapGesture)
+        memeImageView.addGestureRecognizer(longTapGesture)
+    }
     
-        private lazy var  memeImageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.contentMode = .scaleAspectFit
-            imageView.isUserInteractionEnabled = true  //requires lazy var
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            return imageView
-        }()
-    
+    func showAnotherMeme(order: MemeSequence) {
+        let upperLimit = memes.count - 1
+        let lowerLimit = 0
+        
+        if order == .next {
+            currentIndex = currentIndex < upperLimit ? currentIndex + 1 : 0
+        } else {
+            currentIndex = currentIndex > lowerLimit ? currentIndex - 1 : upperLimit
+        }
+        memeImageView.image = memes[currentIndex].finalImage
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        view.backgroundColor = UIColor.white  //<-- swipe gestures don't trigger without this line
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-
-        rightSwipe.direction = .right
-        leftSwipe.direction = .left
-        upSwipe.direction = .up
-        downSwipe.direction = .down
-        
-//        view.addGestureRecognizer(rightSwipe)
-//        view.addGestureRecognizer(leftSwipe)
-//        view.addGestureRecognizer(upSwipe)
-//        view.addGestureRecognizer(downSwipe)
-        
-        
-        memeImageView.addGestureRecognizer(rightSwipe)
-        memeImageView.addGestureRecognizer(leftSwipe)
-        memeImageView.addGestureRecognizer(upSwipe)
-        memeImageView.addGestureRecognizer(downSwipe)
-        
-        
+        loadAllGestures()
+        //        view.addGestureRecognizer(rightSwipe)
+        //        view.addGestureRecognizer(leftSwipe)
+        //        view.addGestureRecognizer(upSwipe)
+        //        view.addGestureRecognizer(downSwipe)
         
         memeImageView.image = memes[currentIndex].finalImage
         view.addSubview(memeImageView)
-        
         NSLayoutConstraint.activate([
             memeImageView.topAnchor.constraint(equalTo: view.topAnchor),
             memeImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -71,37 +74,5 @@ class ShowMemeController: UIViewController {
             memeImageView.rightAnchor.constraint(equalTo: view.rightAnchor),
             ])
     }
-    
-    
-    @objc func handleSwipe(sender: UISwipeGestureRecognizer){
-            switch sender.direction {
-            case .right:
-                showNextMeme()
-            case .left:
-                print("LEFT")
-                showPrevMeme()
-            case .up:
-                dismiss(animated: true, completion: nil)
-            case .down:
-                print("DOWN")
-            default:
-                break
-            }
-    }
-    
-    func showNextMeme(){
-        currentIndex += 1
-        if currentIndex >= memes.count {
-            currentIndex = 0
-        }
-        memeImageView.image = memes[currentIndex].finalImage
-    }
-    
-    func showPrevMeme(){
-        currentIndex -= 1
-        if currentIndex < 0 {
-            currentIndex = memes.count - 1
-        }
-        memeImageView.image = memes[currentIndex].finalImage
-    }
 }
+
