@@ -48,10 +48,6 @@ class CustomTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        
-       
-        
         //let secondController = UICollectionViewLayout()   //compiles but will crash when it loads on screen BUT you don't show elements
         ////ERROR:  UICollectionView: must be initialized with a non-nil layout parameter
         //let secondController = CollectionController(collectionViewLayout: UICollectionViewFlowLayout())  <-- That works
