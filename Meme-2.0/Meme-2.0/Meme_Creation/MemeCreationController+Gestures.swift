@@ -44,14 +44,8 @@ extension MemeCreationController{
             self.backgroundImageView.addGestureRecognizer(gesture)
         }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
-        backgroundImageView.addGestureRecognizer(tapGesture)
         backgroundImageView.addGestureRecognizer(longTapGesture)
-    }
-    
-    @objc func handleTap(sender: UITapGestureRecognizer){
-        dismiss(animated: true, completion: nil)
     }
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer){
