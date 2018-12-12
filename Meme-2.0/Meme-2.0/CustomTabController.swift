@@ -48,9 +48,9 @@ class CustomTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let firstController = TableController()
-        firstController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+
         
+       
         
         //let secondController = UICollectionViewLayout()   //compiles but will crash when it loads on screen BUT you don't show elements
         ////ERROR:  UICollectionView: must be initialized with a non-nil layout parameter
@@ -61,11 +61,14 @@ class CustomTabController: UITabBarController {
         //        let layout = UICollectionViewFlowLayout()
         //        layout.itemSize = CGSize(width: 100, height: 100)
         //        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 20)
-        
-        
+
+        let firstController = TableController()
+        firstController.tabBarItem =  UITabBarItem(title: "Table", image: #imageLiteral(resourceName: "table"), selectedImage: #imageLiteral(resourceName: "table"))
         let secondController = CollectionController(collectionViewLayout: UICollectionViewFlowLayout())
-        secondController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
+        secondController.tabBarItem = UITabBarItem(title: "Collection", image: #imageLiteral(resourceName: "collection"), selectedImage: #imageLiteral(resourceName: "collection"))
         
+        
+
         let tabBarList = [firstController, secondController]
         viewControllers = tabBarList
         
