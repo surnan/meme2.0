@@ -17,6 +17,8 @@ class CollectionController: UICollectionViewController, UICollectionViewDelegate
         return appDelegate.memes
     }
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = UIColor.white
@@ -26,8 +28,12 @@ class CollectionController: UICollectionViewController, UICollectionViewDelegate
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete All", style: .done, target: self, action: #selector(handleDeleteAllBarButton))
         collectionView.reloadData()
     }
-
-
+    
+    @objc func handleDeleteAllBarButton(){
+        self.appDelegate.memes.removeAll()
+        self.collectionView.reloadData()
+    }
 }

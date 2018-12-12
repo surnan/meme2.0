@@ -23,6 +23,7 @@ class TableController: UITableViewController {
     //MARK:- ViewController Functions
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete All", style: .done, target: self, action: #selector(handleDeleteAllBarButton))
         tableView.reloadData()
     }
     
@@ -32,7 +33,7 @@ class TableController: UITableViewController {
         view.backgroundColor = UIColor.white
         tabBarController?.title = "Sent Memes"
         tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlePlusBarButton))
-        tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete All", style: .done, target: self, action: #selector(handleDeleteAllBarButton))
+        
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
