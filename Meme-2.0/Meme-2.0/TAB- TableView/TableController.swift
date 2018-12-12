@@ -32,9 +32,16 @@ class TableController: UITableViewController {
         view.backgroundColor = UIColor.white
         tabBarController?.title = "Sent Memes"
         tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlePlusBarButton))
-        
+        tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete All", style: .done, target: self, action: #selector(handleDeleteAllBarButton))
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
+    
+    
+    @objc func handleDeleteAllBarButton(){
+        self.appDelegate.memes.removeAll()
+        self.tableView.reloadData()
+    }
+    
     
     @objc func handlePlusBarButton(){
         present(MemeCreationController(), animated: true)
