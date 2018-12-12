@@ -43,9 +43,6 @@ extension MemeCreationController{
             gesture.direction = $0
             self.backgroundImageView.addGestureRecognizer(gesture)
         }
-        
-        let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
-        backgroundImageView.addGestureRecognizer(longTapGesture)
     }
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer){
@@ -57,9 +54,5 @@ extension MemeCreationController{
         default:
             break
         }
-    }
-    
-    @objc func handleLongPress(sender: UILongPressGestureRecognizer){
-        showOnlyTopToolbar()
     }
 }

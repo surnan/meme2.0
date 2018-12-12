@@ -9,7 +9,6 @@
 import UIKit
 
 extension MemeCreationController {
-    
     //MARK:- Both Toolbars
     func showTopAndBottomToolbars(makeVisible: Bool){
         if !makeVisible {
@@ -21,13 +20,7 @@ extension MemeCreationController {
         }
     }
     
-    func showOnlyTopToolbar(){
-        bottomToolbar.isHidden = true
-        topToolbar.isHidden = false
-    }
-    
-    
-    //MARK:- TOP Toolbars
+    //MARK:- TOP Toolbars & BarButtons
     func setupTopToolBar(){
         let barButtonOne = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(handleShareBarButton))
         let barButtonTwo = UIBarButtonItem(title: "CANCEL", style: .plain, target: self, action: #selector(handleCancelBarButton))
@@ -37,22 +30,16 @@ extension MemeCreationController {
     
     @objc func handleShareBarButton() {
         let currentMeme = saveMeme()
-        
         let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
         myAppDelegate.memes.append(currentMeme)
-        
-        
         let items = [currentMeme.finalImage]
         let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        
-        
         activityVC.completionWithItemsHandler = {[unowned self](activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
             if !completed {
                 return
             }
             self.dismiss(animated: true, completion: nil)
         }
-        
         present(activityVC, animated: true)
     }
     
@@ -60,16 +47,7 @@ extension MemeCreationController {
         dismiss(animated: true, completion: nil)
     }
     
-    //MARK:- BOTTOM Toolbars
-    
-    func showBottomToolBar(show: Bool){
-        if show {
-            bottomToolbar.isHidden = false
-        } else {
-            bottomToolbar.isHidden = true
-        }
-    }
-    
+    //MARK:- BOTTOM Toolbars & BarButtons
     func setupBottomToolBar(){
         let myImage = #imageLiteral(resourceName: "red_heart")
         let barButtonOne = UIBarButtonItem(image: myImage, style: .plain, target: self, action: #selector(handleCameraBarButton))
