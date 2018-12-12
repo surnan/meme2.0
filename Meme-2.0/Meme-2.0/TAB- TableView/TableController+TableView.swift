@@ -47,21 +47,29 @@ extension TableController {
     
     
     
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let shareAction = UITableViewRowAction(style: .normal, title: "Share", handler: shareActionHandler)
-        let deleteAction = UITableViewRowAction(style: .destructive , title: "Delete", handler: deleteActionHandler)
-        shareAction.backgroundColor = UIColor.blue
-        return [deleteAction, shareAction]
-    }
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let deleteAction = UITableViewRowAction(style: .destructive , title: "Delete", handler: deleteActionHandler)
+//        return [deleteAction]
+//    }
+//
+//    private func deleteActionHandler(action:UITableViewRowAction, indexPath: IndexPath){
+//        print("Shared")
+//     }
+    
+    
 
-    
-    private func deleteActionHandler(action:UITableViewRowAction, indexPath: IndexPath){
-        print("Shared")
-     }
-    
-    private func shareActionHandler(action:UITableViewRowAction, indexPath: IndexPath){
-        print("EDITED")
-    }
-    
-    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            
+            let deleteAction = UIContextualAction(style: .normal, title:  nil, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+                
+                debugPrint("Delete tapped")
+                
+                success(true)
+            })
+            
+            deleteAction.image = #imageLiteral(resourceName: "delete")
+            deleteAction.backgroundColor = UIColor.red
+            
+            return UISwipeActionsConfiguration(actions: [deleteAction])
+        }
 }
