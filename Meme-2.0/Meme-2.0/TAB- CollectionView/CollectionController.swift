@@ -19,21 +19,27 @@ class CollectionController: UICollectionViewController, UICollectionViewDelegate
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView.backgroundColor = UIColor.white
-        tabBarController?.title = "Sent Memes"
-        collectionView.register(MemeCollectionViewCell.self, forCellWithReuseIdentifier: reuseID)
-    }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete All", style: .done, target: self, action: #selector(handleDeleteAllBarButton))
         collectionView.reloadData()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionView.register(MemeCollectionViewCell.self, forCellWithReuseIdentifier: reuseID)
+        collectionView.backgroundColor = UIColor.white
+        tabBarController?.title = "Sent Memes"
+        tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlePlusBarButton))
+    }
+    
     @objc func handleDeleteAllBarButton(){
         self.appDelegate.memes.removeAll()
         self.collectionView.reloadData()
+    }
+    
+    @objc func handlePlusBarButton(){
+        present(MemeCreationController(), animated: true)
     }
 }

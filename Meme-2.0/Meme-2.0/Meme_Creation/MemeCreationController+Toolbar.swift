@@ -22,8 +22,8 @@ extension MemeCreationController {
     
     //MARK:- TOP Toolbars & BarButtons
     func setupTopToolBar(){
-        let barButtonOne = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(handleShareBarButton))
-        let barButtonTwo = UIBarButtonItem(title: "CANCEL", style: .plain, target: self, action: #selector(handleCancelBarButton))
+        let barButtonOne = UIBarButtonItem(title: "CANCEL", style: .plain, target: self, action: #selector(handleCancelBarButton))
+        let barButtonTwo = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(handleShareBarButton))
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace,target: nil,action: nil)
         topToolbar.setItems([barButtonOne, flexibleSpace ,barButtonTwo], animated: false)
     }
