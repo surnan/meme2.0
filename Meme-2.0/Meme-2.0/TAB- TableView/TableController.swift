@@ -53,6 +53,9 @@ class TableController: UITableViewController {
         let newController = ShowMemeController()
         newController.currentIndex = indexPath.item
         
+        
+        let currentMeme = memes[indexPath.item]
+        
         let newController2 = MemeCreationController()
         newController2.currentMeme = memes[indexPath.item]
         newController2.currentIndex = indexPath.item

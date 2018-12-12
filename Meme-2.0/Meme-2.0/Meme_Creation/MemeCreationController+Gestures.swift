@@ -33,6 +33,8 @@ extension MemeCreationController{
             currentIndex = currentIndex > lowerLimit ? currentIndex - 1 : upperLimit
         }
         backgroundImageView.image = memes[currentIndex].finalImage
+        topTextField.isHidden = true
+        bottomTextField.isHidden = true
     }
     
     func loadAllGestures(){

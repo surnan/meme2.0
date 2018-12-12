@@ -187,5 +187,12 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
             $0.addTarget(self, action: #selector(myTextFieldTextChanged), for: UIControl.Event.editingChanged)
             $0.delegate = self
         }
+        
+        
+        if currentMeme != nil {
+            loadAllGestures()
+            showTopAndBottomToolbars(makeVisible: false)
+        }
+        
     }
 }
