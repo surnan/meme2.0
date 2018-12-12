@@ -25,12 +25,10 @@ class TableController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tempMemeObject = memes[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: resuseID)
-        cell?.textLabel?.text = "btm = \(tempMemeObject.bottom)  ..... top = \(tempMemeObject.top)"
-        cell?.imageView?.image = tempMemeObject.finalImage
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: resuseID) as! MemeTableViewCell
+        cell.meme = tempMemeObject
+        return cell
     }
-    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          return 100
@@ -57,6 +55,7 @@ class TableController: UITableViewController {
     }
     
     
+    
     //MARK:- ViewController Functions
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -66,14 +65,14 @@ class TableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: resuseID)
+        tableView.register(MemeTableViewCell.self, forCellReuseIdentifier: resuseID)
         view.backgroundColor = UIColor.green
         tabBarController?.title = "Sent Memes"
-        tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleThis))
+        tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlePlusBarButton))
     }
     
     
-    @objc func handleThis(){
+    @objc func handlePlusBarButton(){
         present(MemeCreationController(), animated: true)
     }
 }

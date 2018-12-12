@@ -21,6 +21,7 @@
 		8431C20121B708270017CF39 /* CollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431C20021B708270017CF39 /* CollectionController.swift */; };
 		8450B7E721BEDF930022D8F6 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450B7E621BEDF930022D8F6 /* MemeCollectionViewCell.swift */; };
 		846D107A21C0DB6D000D39A1 /* MemeCreationController+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D107921C0DB6D000D39A1 /* MemeCreationController+Gestures.swift */; };
+		846D107E21C13D96000D39A1 /* MemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D107D21C13D96000D39A1 /* MemeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		8431C20021B708270017CF39 /* CollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionController.swift; sourceTree = "<group>"; };
 		8450B7E621BEDF930022D8F6 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		846D107921C0DB6D000D39A1 /* MemeCreationController+Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemeCreationController+Gestures.swift"; sourceTree = "<group>"; };
+		846D107D21C13D96000D39A1 /* MemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				8431C1FE21B708010017CF39 /* TableController.swift */,
+				846D107D21C13D96000D39A1 /* MemeTableViewCell.swift */,
 			);
 			path = "TAB- TableView";
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				8431C1EB21B705EC0017CF39 /* AppDelegate.swift in Sources */,
 				84314E2721BD71E1007A5676 /* MemeCreationController+TextField.swift in Sources */,
 				84314E2621BD71E1007A5676 /* MemeCreationController.swift in Sources */,
+				846D107E21C13D96000D39A1 /* MemeTableViewCell.swift in Sources */,
 				846D107A21C0DB6D000D39A1 /* MemeCreationController+Gestures.swift in Sources */,
 				84314E2221BD71E1007A5676 /* MemeCreationController+Toolbar.swift in Sources */,
 			);
