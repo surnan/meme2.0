@@ -50,14 +50,10 @@ class TableController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let newController = ShowMemeController()
-//        newController.currentIndex = indexPath.item
-//        let currentMeme = memes[indexPath.item]
-        
-        let newController2 = MemeCreationController()
-        newController2.currentMeme = memes[indexPath.item]
-        newController2.currentIndex = indexPath.item
-        present(newController2, animated: true)
+        let newController = MemeCreationController()
+        newController.currentMeme = memes[indexPath.item]
+        newController.currentIndex = indexPath.item
+        present(newController, animated: true)
     }
     
     

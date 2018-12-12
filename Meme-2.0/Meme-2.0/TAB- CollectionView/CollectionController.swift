@@ -27,7 +27,10 @@ class CollectionController: UICollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("top string = \(memes[indexPath.item].top)")
+        let newController = MemeCreationController()
+        newController.currentMeme = memes[indexPath.item]
+        newController.currentIndex = indexPath.item
+        present(newController, animated: true)
     }
     
     
