@@ -50,18 +50,12 @@ extension TableController {
         let newController = MemeCreationController()
         newController.currentMeme = memes[indexPath.item]
         newController.currentIndex = indexPath.item
-        
-        
-//        present(newController, animated: true)
-    
         navigationController?.pushViewController(newController, animated: true)
-    
-    
     }
 
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            let deleteAction = UIContextualAction(style: .normal, title:  nil, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            let deleteAction = UIContextualAction(style: .destructive, title:  nil, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
                 self.appDelegate.memes.remove(at: indexPath.item)
                 self.tableView.reloadData()
                 success(true)
