@@ -15,6 +15,7 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
         var imageView = UIImageView()
         imageView.backgroundColor = UIColor.black
         imageView.isUserInteractionEnabled = true
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
