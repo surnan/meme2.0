@@ -50,17 +50,13 @@ class MemeTableViewCell: UITableViewCell{
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     func setupUI() {
         [memeImageView, memeLabel].forEach{addSubview($0)}
-        
         NSLayoutConstraint.activate([
             memeImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             memeImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             memeImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             memeImageView.widthAnchor.constraint(equalTo: memeImageView.heightAnchor),
-            
             memeLabel.leadingAnchor.constraint(equalTo: memeImageView.trailingAnchor, constant: 10),
             memeLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
             ])

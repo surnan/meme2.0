@@ -11,6 +11,7 @@ import UIKit
 
 class MemeCreationController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    //MARK:- UI Variables
     var currentIndex = 0
     var currentMeme: Meme? {
         didSet{
@@ -78,7 +79,6 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
     func setupTextFieldAndBackgroundImage(){
         [backgroundImageView].forEach{view.addSubview($0)}
         [topTextField, bottomTextField].forEach{backgroundImageView.addSubview($0)}
-        
         NSLayoutConstraint.activate([
             topTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             topTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 90),
@@ -92,7 +92,7 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
         )
     }
     
-    //MARK: Local Defined Variables
+    //MARK: Toolbars
     var topToolbar: UIToolbar = {
         var toolbar = UIToolbar()
         toolbar.barTintColor = UIColor.lightGray
@@ -127,9 +127,7 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
     func setupUI_and_Contraints(){
         setupTopToolBar()
         setupBottomToolBar()
-        
         [topToolbar, bottomToolbar].forEach{backgroundImageView.addSubview($0)}
-        
         NSLayoutConstraint.activate([
             topToolbar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             topToolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -140,7 +138,7 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
             ])
     }
     
-    //MARK:- Make Meme Functions
+    //MARK:- Create/Send Meme Functions
     func generateMemedImage() -> UIImage {
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -161,7 +159,7 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     
-    //MARK:- Swift Overload Functions
+    //MARK:- Override Swift Functions
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -185,11 +183,9 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
             $0.addTarget(self, action: #selector(myTextFieldTextChanged), for: UIControl.Event.editingChanged)
             $0.delegate = self
         }
-        
         if currentMeme != nil {
             loadAllGestures()
             showTopAndBottomToolbars(makeVisible: false)
         }
-        
     }
 }

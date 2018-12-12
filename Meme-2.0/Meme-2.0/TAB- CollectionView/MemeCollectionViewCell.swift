@@ -10,7 +10,6 @@ import UIKit
 
 class MemeCollectionViewCell: UICollectionViewCell {
     
-    
     var currentMeme: Meme?{
         didSet{
             guard let tempImage = currentMeme?.finalImage else {return}
@@ -28,7 +27,6 @@ class MemeCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     func setupCell(){
         cellImageView.translatesAutoresizingMaskIntoConstraints = false

@@ -17,9 +17,7 @@ extension TableController {
         let tempMemeObject = memes[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: resuseID) as! MemeTableViewCell
         cell.meme = tempMemeObject
-        
         cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.lightBlue: UIColor.myLightGray
-        
         return cell
     }
     
@@ -27,31 +25,26 @@ extension TableController {
         return 125
     }
     
-    
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return memes.count == 0 ? 200: 0
     }
+    
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let moreLabel: UILabel = {
             let label = UILabel()
-            
-            
             let memeTextAttributes:[NSAttributedString.Key: Any] = [
                 NSAttributedString.Key.strokeColor: UIColor.black,
-                NSAttributedString.Key.foregroundColor: UIColor.white,
-                NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
+                NSAttributedString.Key.foregroundColor: UIColor.orange,
+                NSAttributedString.Key.font: UIFont(name: "Copperplate", size: 30)!,
                 NSAttributedString.Key.strokeWidth: -4.6
             ]
-            
-            label.attributedText = NSAttributedString(string: "Press  + \nto create memes", attributes: memeTextAttributes)
+            label.attributedText = NSAttributedString(string: "PRESS  + \nTO CREATE MEME", attributes: memeTextAttributes)
             label.textAlignment = .center
             label.numberOfLines = -1
-            
             return label
         }()
         return moreLabel
     }
-    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newController = MemeCreationController()

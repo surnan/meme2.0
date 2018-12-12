@@ -17,10 +17,6 @@ class CollectionController: UICollectionViewController, UICollectionViewDelegate
         return appDelegate.memes
     }
     
- 
-    
-    
-    //MARK:- View Controller Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = UIColor.white
