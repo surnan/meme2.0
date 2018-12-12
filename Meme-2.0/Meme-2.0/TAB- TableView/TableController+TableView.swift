@@ -17,11 +17,14 @@ extension TableController {
         let tempMemeObject = memes[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: resuseID) as! MemeTableViewCell
         cell.meme = tempMemeObject
+        
+        cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.lightBlue: UIColor.myLightGray
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 125
     }
     
     
@@ -31,7 +34,19 @@ extension TableController {
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let moreLabel: UILabel = {
             let label = UILabel()
-            label.text = "Please click the Add icon to create a Meme"
+            
+            
+            let memeTextAttributes:[NSAttributedString.Key: Any] = [
+                NSAttributedString.Key.strokeColor: UIColor.black,
+                NSAttributedString.Key.foregroundColor: UIColor.white,
+                NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
+                NSAttributedString.Key.strokeWidth: -4.6
+            ]
+            
+            label.attributedText = NSAttributedString(string: "Press  + \nto create memes", attributes: memeTextAttributes)
+            label.textAlignment = .center
+            label.numberOfLines = -1
+            
             return label
         }()
         return moreLabel
@@ -44,32 +59,23 @@ extension TableController {
         newController.currentIndex = indexPath.item
         present(newController, animated: true)
     }
-    
-    
-    
-//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        let deleteAction = UITableViewRowAction(style: .destructive , title: "Delete", handler: deleteActionHandler)
-//        return [deleteAction]
-//    }
-//
-//    private func deleteActionHandler(action:UITableViewRowAction, indexPath: IndexPath){
-//        print("Shared")
-//     }
-    
-    
+
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            
             let deleteAction = UIContextualAction(style: .normal, title:  nil, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-                
                 debugPrint("Delete tapped")
-                
                 success(true)
             })
-            
             deleteAction.image = #imageLiteral(resourceName: "delete")
             deleteAction.backgroundColor = UIColor.red
-            
             return UISwipeActionsConfiguration(actions: [deleteAction])
         }
+
+    
+    func handleDeleteBarSelection(ac:UIContextualAction, view:UIView, success:Bool){
+        print("test")
+    }
+    
+    
+    
 }

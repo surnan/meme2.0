@@ -23,7 +23,7 @@ class CollectionController: UICollectionViewController, UICollectionViewDelegate
     //MARK:- View Controller Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = UIColor.gray
+        collectionView.backgroundColor = UIColor.white
         tabBarController?.title = "Sent Memes"
         collectionView.register(MemeCollectionViewCell.self, forCellWithReuseIdentifier: reuseID)
     }

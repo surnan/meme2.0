@@ -18,6 +18,8 @@ class TableController: UITableViewController {
         return appDelegate.memes
     }
 
+//    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//    var memes = [Meme]()
     
     //MARK:- ViewController Functions
     override func viewDidAppear(_ animated: Bool) {
@@ -29,7 +31,7 @@ class TableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(MemeTableViewCell.self, forCellReuseIdentifier: resuseID)
-        view.backgroundColor = UIColor.green
+        view.backgroundColor = UIColor.white
         tabBarController?.title = "Sent Memes"
         tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlePlusBarButton))
     }
