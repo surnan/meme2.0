@@ -14,11 +14,9 @@ class MemeTableViewCell: UITableViewCell{
         didSet{
             guard let currentMeme = meme else {return}
             memeImageView.image = currentMeme.finalImage
-            memeLabel.text = "\(currentMeme.top) .... \(currentMeme.bottom)"
+            memeLabel.attributedText = NSAttributedString(string: "\(currentMeme.top) .... \(currentMeme.bottom)", attributes: memeTextAttributes)
         }
     }
-    
-    
     
     var memeImageView: UIImageView = {
         var imageView = UIImageView()
@@ -27,22 +25,25 @@ class MemeTableViewCell: UITableViewCell{
         return imageView
     }()
     
+    
+    let memeTextAttributes:[NSAttributedString.Key: Any] = [
+        NSAttributedString.Key.strokeColor: UIColor.black,
+        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 20)!,
+        NSAttributedString.Key.strokeWidth: -4.6
+    ]
+    
+    
     var memeLabel: UILabel = {
        var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        
         setupUI()
-        
         backgroundColor = UIColor.purple
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
