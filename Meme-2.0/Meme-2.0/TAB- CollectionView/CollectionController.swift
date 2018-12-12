@@ -6,13 +6,6 @@
 //  Copyright © 2018 admin. All rights reserved.
 //
 
-/*
- let layout = UICollectionViewFlowLayout()
- layout.scrollDirection = .horizontal
- let swipingController = SwipingController(collectionViewLayout: layout)
- window?.rootViewController = swipingController
- */
-
 import UIKit
 
 class CollectionController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -25,11 +18,9 @@ class CollectionController: UICollectionViewController, UICollectionViewDelegate
     }
     
     //MARK:- CollectionView Functions
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 100)
     }
-
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
@@ -50,10 +41,6 @@ class CollectionController: UICollectionViewController, UICollectionViewDelegate
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let currentMemeArray = myAppDelegate.memes
-//        print("TableView ...Number of Elements in myAppDelegate.memes = \(currentMemeArray.count) \n\n")
-//        print("CollectionController --> memeCount = \(memes.count)")
         collectionView.reloadData()
     }
 

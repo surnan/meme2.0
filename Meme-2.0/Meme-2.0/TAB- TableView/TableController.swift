@@ -59,9 +59,6 @@ class TableController: UITableViewController {
     //MARK:- ViewController Functions
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let currentMemeArray = myAppDelegate.memes
-//        print("TableView ...Number of Elements in myAppDelegate.memes = \(currentMemeArray.count) \n\n")
         tableView.reloadData()
     }
     
@@ -76,7 +73,6 @@ class TableController: UITableViewController {
     
     
     @objc func handleThis(){
-//        print("Hello")
         present(MemeCreationController(), animated: true)
     }
 }
