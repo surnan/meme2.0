@@ -11,7 +11,7 @@ import UIKit
 extension MemeCreationController {
     
     //MARK:- Both Toolbars
-    func showToolbars(makeVisible: Bool){
+    func showTopAndBottomToolbars(makeVisible: Bool){
         if !makeVisible {
             bottomToolbar.isHidden = true
             topToolbar.isHidden = true
@@ -20,6 +20,12 @@ extension MemeCreationController {
             bottomToolbar.isHidden = false
         }
     }
+    
+    func showOnlyTopToolbar(){
+        bottomToolbar.isHidden = true
+        topToolbar.isHidden = false
+    }
+    
     
     //MARK:- TOP Toolbars
     func setupTopToolBar(){
@@ -55,6 +61,15 @@ extension MemeCreationController {
     }
     
     //MARK:- BOTTOM Toolbars
+    
+    func showBottomToolBar(show: Bool){
+        if show {
+            bottomToolbar.isHidden = false
+        } else {
+            bottomToolbar.isHidden = true
+        }
+    }
+    
     func setupBottomToolBar(){
         let myImage = #imageLiteral(resourceName: "red_heart")
         let barButtonOne = UIBarButtonItem(image: myImage, style: .plain, target: self, action: #selector(handleCameraBarButton))

@@ -15,7 +15,6 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
         var imageView = UIImageView()
         imageView.backgroundColor = UIColor.black
         imageView.isUserInteractionEnabled = true
-        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -143,12 +142,12 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func saveMeme()-> Meme {
-        showToolbars(makeVisible: false)
+        showTopAndBottomToolbars(makeVisible: false)
         let currentMeme = Meme(topTxtField: topTextField,
                                bottomTxtField: bottomTextField,
                                originalImageView: backgroundImageView,
                                memeImage: generateMemedImage())
-        showToolbars(makeVisible: true)
+        showTopAndBottomToolbars(makeVisible: true)
         return currentMeme
     }
     

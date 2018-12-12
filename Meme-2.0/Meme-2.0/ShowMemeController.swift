@@ -30,20 +30,7 @@ class ShowMemeController: UIViewController {
         return imageView
     }()
     
-    func loadAllGestures(){
-        typealias swipe = UISwipeGestureRecognizer.Direction
-        
-        [swipe.up, swipe.down, swipe.left, swipe.right].forEach{
-            let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-            gesture.direction = $0
-            self.memeImageView.addGestureRecognizer(gesture)
-        }
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
-        let longTapGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(sender:)))
-        memeImageView.addGestureRecognizer(tapGesture)
-        memeImageView.addGestureRecognizer(longTapGesture)
-    }
+
     
     func showAnotherMeme(order: MemeSequence) {
         let upperLimit = memes.count - 1
@@ -59,12 +46,8 @@ class ShowMemeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadAllGestures()
-        //        view.addGestureRecognizer(rightSwipe)
-        //        view.addGestureRecognizer(leftSwipe)
-        //        view.addGestureRecognizer(upSwipe)
-        //        view.addGestureRecognizer(downSwipe)
         
+        loadAllGestures()   //Do we have Meme pre-loaded?
         memeImageView.image = memes[currentIndex].finalImage
         view.addSubview(memeImageView)
         NSLayoutConstraint.activate([
