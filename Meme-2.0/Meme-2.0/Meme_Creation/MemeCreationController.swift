@@ -11,6 +11,8 @@ import UIKit
 
 class MemeCreationController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
+    var currentIndex = 0
+    
     var backgroundImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.backgroundColor = UIColor.black
