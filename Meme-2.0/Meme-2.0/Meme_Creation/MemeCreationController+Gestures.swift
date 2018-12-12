@@ -68,11 +68,14 @@ extension MemeCreationController{
     }
     
     @objc func handleLongPress(sender: UILongPressGestureRecognizer){
-        let newVC = MemeCreationController()
-        newVC.backgroundImageView.image = backgroundImageView.image
-        newVC.bottomToolbar.isHidden = true
-        newVC.topTextField.isHidden = true
-        newVC.bottomTextField.isHidden = true
-        present(newVC, animated: false)
+//        let newVC = MemeCreationController()
+//        newVC.backgroundImageView.image = backgroundImageView.image
+//        newVC.bottomToolbar.isHidden = true
+//        newVC.topTextField.isHidden = true
+//        newVC.bottomTextField.isHidden = true
+//        present(newVC, animated: false)
+        
+        showOnlyTopToolbar()
+        
     }
 }
