@@ -189,7 +189,23 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
             showTopAndBottomToolbars(makeVisible: false)
         }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(handleShareBarButton))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(handleShareBarButton))
+        /*
+ @objc func handleShareBarButton() {
+ let currentMeme = saveMeme()
+ let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
+ myAppDelegate.memes.append(currentMeme)
+ let items = [currentMeme.finalImage]
+ let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
+ activityVC.completionWithItemsHandler = {[unowned self](activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+ if !completed {
+ return
+ }
+ self.dismiss(animated: true, completion: nil)
+ }
+ present(activityVC, animated: true)
+ }
+ */
         
     }
 }
