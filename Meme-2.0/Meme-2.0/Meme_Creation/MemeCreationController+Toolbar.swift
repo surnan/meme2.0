@@ -49,7 +49,7 @@ extension MemeCreationController {
     
     //MARK:- BOTTOM Toolbars & BarButtons
     func setupBottomToolBar(){
-        let myImage = #imageLiteral(resourceName: "red_heart")
+        let myImage = #imageLiteral(resourceName: "camera2")
         let barButtonOne = UIBarButtonItem(image: myImage, style: .plain, target: self, action: #selector(handleCameraBarButton))
         let barButtonTwo = UIBarButtonItem(title: "Album", style: .done, target: self, action: #selector(handleAlbumBarButton))
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace,target: nil,action: nil)
