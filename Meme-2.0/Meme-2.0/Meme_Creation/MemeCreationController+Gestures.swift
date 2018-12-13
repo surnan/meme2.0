@@ -30,14 +30,13 @@ extension MemeCreationController{
         } else {
             currentIndex = currentIndex > lowerLimit ? currentIndex - 1 : upperLimit
         }
-        backgroundImageView.image = memes[currentIndex].finalImage
-        topTextField.isHidden = true
-        bottomTextField.isHidden = true
+        backgroundImageView.image = memes[currentIndex].originalImage
+        topTextField.text = memes[currentIndex].top
+        bottomTextField.text = memes[currentIndex].bottom
     }
     
     func loadAllGestures(){
         typealias swipe = UISwipeGestureRecognizer.Direction
-        
         [swipe.up, swipe.down, swipe.left, swipe.right].forEach{
             let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
             gesture.direction = $0
