@@ -32,13 +32,28 @@ extension TableController {
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let moreLabel: UILabel = {
             let label = UILabel()
-            let memeTextAttributes:[NSAttributedString.Key: Any] = [
+            let memeTextAttributesCopper:[NSAttributedString.Key: Any] = [
                 NSAttributedString.Key.strokeColor: UIColor.black,
                 NSAttributedString.Key.foregroundColor: UIColor.orange,
                 NSAttributedString.Key.font: UIFont(name: "Copperplate", size: 30)!,
                 NSAttributedString.Key.strokeWidth: -4.6
             ]
-            label.attributedText = NSAttributedString(string: "PRESS  + \nTO CREATE MEME", attributes: memeTextAttributes)
+            
+            let memeTextAttributesVerdana:[NSAttributedString.Key: Any] = [
+                NSAttributedString.Key.strokeColor: UIColor.gray,
+                NSAttributedString.Key.foregroundColor: UIColor.blue,
+                NSAttributedString.Key.font: UIFont(name: "Verdana", size: 35)!,
+                NSAttributedString.Key.strokeWidth: -5.0
+            ]
+            
+            let string1 = NSMutableAttributedString(string: "PRESS  ", attributes: memeTextAttributesCopper)
+            let string2 = NSMutableAttributedString(string: "+", attributes: memeTextAttributesVerdana)
+            let string3 = NSMutableAttributedString(string: "\nTO CREATE MEME", attributes: memeTextAttributesCopper)
+            
+            let combination = NSMutableAttributedString()
+            [string1, string2, string3].forEach{combination.append($0)}
+            label.attributedText = combination
+            
             label.textAlignment = .center
             label.numberOfLines = -1
             return label
