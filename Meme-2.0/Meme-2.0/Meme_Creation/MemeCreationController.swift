@@ -11,7 +11,7 @@ import UIKit
 
 class MemeCreationController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
-    //MARK:- UI Variables
+    //MARK:- UI Var
     var currentIndex = 0
     var currentMeme: Meme? {
         didSet{
@@ -32,20 +32,16 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
     
     var topTextField: UITextField = {
         var textField = UITextField()
-        
         textField.backgroundColor = UIColor.clear
         textField.borderStyle = .none
         textField.clearsOnBeginEditing = true
-        
         let memeTextAttributes:[NSAttributedString.Key: Any] = [
             NSAttributedString.Key.strokeColor: UIColor.black,
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSAttributedString.Key.strokeWidth: -4.6
         ]
-        
         textField.defaultTextAttributes = memeTextAttributes
-        
         let memeText = NSMutableAttributedString(string: "TOP", attributes: memeTextAttributes)
         textField.attributedText = memeText
         textField.textAlignment = .center
@@ -56,20 +52,16 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
     
     var bottomTextField: UITextField = {
         var textField = UITextField()
-        
         textField.backgroundColor = UIColor.clear
         textField.borderStyle = .none
         textField.clearsOnBeginEditing = true
-        
         let memeTextAttributes:[NSAttributedString.Key: Any] = [
             NSAttributedString.Key.strokeColor: UIColor.black,
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSAttributedString.Key.strokeWidth: -4.6
         ]
-        
         textField.defaultTextAttributes = memeTextAttributes
-        
         let memeText = NSMutableAttributedString(string: "BOTTOM", attributes: memeTextAttributes)
         textField.attributedText = memeText
         textField.textAlignment = .center
@@ -110,21 +102,7 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
         return toolbar
     }()
     
-    
-    //MARK:- ImagePickerController Functions
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let editedImage = info[.editedImage] as? UIImage {
-            backgroundImageView.image = editedImage  //if the image is cropped or moved by user
-        } else if let originalImage = info[.originalImage] as? UIImage {
-            backgroundImageView.image = originalImage //if user does nothing after selecting photo
-        }
-        dismiss(animated: true, completion: nil)
-    }
-    
+    //MARK:- Constraints
     func setupUI_and_Contraints(){
         setupTopToolBar()
         setupBottomToolBar()
@@ -138,27 +116,6 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
             bottomToolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             ])
     }
-    
-    //MARK:- Create/Send Meme Functions
-    func generateMemedImage() -> UIImage {
-        // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
-        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return memedImage
-    }
-    
-    func saveMeme()-> Meme {
-        showTopAndBottomToolbars(makeVisible: false)
-        let currentMeme = Meme(topTxtField: topTextField,
-                               bottomTxtField: bottomTextField,
-                               originalImageView: backgroundImageView,
-                               memeImage: generateMemedImage())
-        showTopAndBottomToolbars(makeVisible: true)
-        return currentMeme
-    }
-    
     
     //MARK:- Override Swift Functions
     override var prefersStatusBarHidden: Bool {
@@ -191,6 +148,7 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(handleActivityBarButton))
     }
     
+    //MARK:- Handler Functions <---> currentMeme? != nil
     @objc func handleActivityBarButton() {
         let currentMeme2 = saveMeme2()
         let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -207,10 +165,7 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func saveMeme2()-> Meme {
-        let currentMeme = Meme(topTxtField: topTextField,
-                               bottomTxtField: bottomTextField,
-                               originalImageView: backgroundImageView,
-                               memeImage: generateMemedImage())
+        let currentMeme = Meme(topTxtField: topTextField, bottomTxtField: bottomTextField, originalImageView: backgroundImageView, memeImage: generateMemedImage())
         return currentMeme
     }
 }

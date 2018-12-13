@@ -73,4 +73,21 @@ extension MemeCreationController {
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
     }
+    
+    //MARK:- Create/Send Meme Functions
+    func generateMemedImage() -> UIImage {
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return memedImage
+    }
+    
+    func saveMeme()-> Meme {
+        showTopAndBottomToolbars(makeVisible: false)
+        let currentMeme = Meme(topTxtField: topTextField, bottomTxtField: bottomTextField, originalImageView: backgroundImageView, memeImage: generateMemedImage())
+        showTopAndBottomToolbars(makeVisible: true)
+        return currentMeme
+    }
 }
