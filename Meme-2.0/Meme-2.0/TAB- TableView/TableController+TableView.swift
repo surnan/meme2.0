@@ -55,13 +55,23 @@ extension TableController {
 
 
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            let deleteAction = UIContextualAction(style: .destructive, title:  nil, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-                self.appDelegate.memes.remove(at: indexPath.item)
-                self.tableView.reloadData()
-                success(true)
-            })
-            deleteAction.image = #imageLiteral(resourceName: "delete")
-            deleteAction.backgroundColor = UIColor.red
-            return UISwipeActionsConfiguration(actions: [deleteAction])
-        }
+        let deleteAction = UIContextualAction(style: .destructive, title:  nil, handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            self.appDelegate.memes.remove(at: indexPath.item)
+            self.tableView.reloadData()
+            success(true)
+        })
+        deleteAction.image = #imageLiteral(resourceName: "delete")
+        deleteAction.backgroundColor = UIColor.red
+        
+        let editAction = UIContextualAction(style: .destructive, title:  "EDIT", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+ 
+            let newVC = MemeCreationController()
+            newVC.currentMeme = self.memes[indexPath.item]
+            self.navigationController?.pushViewController(newVC, animated: true)
+            
+            success(true)
+        })
+        editAction.backgroundColor = UIColor.blue
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+    }
 }

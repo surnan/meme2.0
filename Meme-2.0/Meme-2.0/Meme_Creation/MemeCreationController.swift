@@ -188,24 +188,29 @@ class MemeCreationController: UIViewController, UIImagePickerControllerDelegate,
             loadAllGestures()
             showTopAndBottomToolbars(makeVisible: false)
         }
-        
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(handleShareBarButton))
-        /*
- @objc func handleShareBarButton() {
- let currentMeme = saveMeme()
- let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
- myAppDelegate.memes.append(currentMeme)
- let items = [currentMeme.finalImage]
- let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
- activityVC.completionWithItemsHandler = {[unowned self](activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
- if !completed {
- return
- }
- self.dismiss(animated: true, completion: nil)
- }
- present(activityVC, animated: true)
- }
- */
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(handleActivityBarButton))
+    }
+    
+    @objc func handleActivityBarButton() {
+        let currentMeme2 = saveMeme2()
+        let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
+        myAppDelegate.memes.append(currentMeme2)
+        let items = [currentMeme2.finalImage]
+        let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityVC.completionWithItemsHandler = {[unowned self](activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            if !completed {
+                return
+            }
+            self.navigationController?.popViewController(animated: true)
+        }
+        present(activityVC, animated: true)
+    }
+    
+    func saveMeme2()-> Meme {
+        let currentMeme = Meme(topTxtField: topTextField,
+                               bottomTxtField: bottomTextField,
+                               originalImageView: backgroundImageView,
+                               memeImage: generateMemedImage())
+        return currentMeme
     }
 }
