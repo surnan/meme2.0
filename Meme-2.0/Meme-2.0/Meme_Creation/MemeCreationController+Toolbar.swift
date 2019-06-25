@@ -28,20 +28,7 @@ extension MemeCreationController {
         topToolbar.setItems([barButtonOne, flexibleSpace ,barButtonTwo], animated: false)
     }
     
-    @objc func handleShareBarButton() {
-        let currentMeme = saveMeme()
-        let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
-        myAppDelegate.memes.append(currentMeme)
-        let items = [currentMeme.finalImage]
-        let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        activityVC.completionWithItemsHandler = {[unowned self](activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
-            if !completed {
-                return
-            }
-            self.dismiss(animated: true, completion: nil)
-        }
-        present(activityVC, animated: true)
-    }
+
     
     @objc func handleCancelBarButton() {
         dismiss(animated: true, completion: nil)
@@ -89,5 +76,20 @@ extension MemeCreationController {
         let currentMeme = Meme(topTxtField: topTextField, bottomTxtField: bottomTextField, originalImageView: backgroundImageView, memeImage: generateMemedImage())
         showTopAndBottomToolbars(makeVisible: true)
         return currentMeme
+    }
+    
+    @objc func handleShareBarButton() {
+        let currentMeme = saveMeme()
+        let myAppDelegate = UIApplication.shared.delegate as! AppDelegate
+        myAppDelegate.memes.append(currentMeme)
+        let items = [currentMeme.finalImage]
+        let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityVC.completionWithItemsHandler = {[unowned self](activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            if !completed {
+                return
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+        present(activityVC, animated: true)
     }
 }
